@@ -1,0 +1,27 @@
+version: 1.0
+runtime: docker
+
+run:
+  command: /opt/keycloak/bin/kc.sh start --optimized
+  network:
+    port: 8080
+    env: KC_HTTP_PORT
+  env:
+    - name: KC_DB
+      value: "postgres"
+    - name: KC_DB_URL
+      value: ""  # Set via App Runner environment variables (jdbc:postgresql://host:5432/dbname)
+    - name: KC_DB_USERNAME
+      value: ""  # Set via App Runner secrets
+    - name: KC_DB_PASSWORD
+      value: ""  # Set via App Runner secrets
+    - name: KC_HOSTNAME
+      value: ""  # Set via App Runner environment variables (your custom domain)
+    - name: KC_PROXY
+      value: "edge"
+    - name: KC_HTTP_ENABLED
+      value: "true"
+    - name: KEYCLOAK_ADMIN
+      value: "admin"
+    - name: KEYCLOAK_ADMIN_PASSWORD
+      value: ""  # Set via App Runner secrets

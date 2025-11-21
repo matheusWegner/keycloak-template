@@ -1,0 +1,66 @@
+{
+  "realm": "app",
+  "enabled": true,
+  "registrationAllowed": true,
+  "loginTheme": "meu-tema",
+  "clients": [
+    {
+      "clientId": "frontend-spa",
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "redirectUris": [
+        "http://localhost:4200/*"
+      ],
+      "webOrigins": [
+        "http://localhost:4200"
+      ],
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      }
+    },
+    {
+      "clientId": "api",
+      "protocol": "openid-connect",
+      "bearerOnly": true
+    }
+  ],
+  "identityProviders": [
+    {
+      "alias": "google",
+      "providerId": "google",
+      "enabled": true,
+      "trustEmail": true,
+      "storeToken": false,
+      "addReadTokenRoleOnCreate": false,
+      "config": {
+        "clientId": "",
+        "clientSecret": "",
+        "defaultScope": "openid profile email",
+        "clientAuthMethod": "client_secret_post"
+      }
+    }
+  ],
+  "clientScopes": [
+    {
+      "name": "roles",
+      "protocol": "openid-connect"
+    }
+  ],
+  "defaultDefaultClientScopes": [
+    "roles",
+    "web-origins",
+    "role_list",
+    "profile",
+    "email"
+  ],
+  "defaultOptionalClientScopes": [
+    "phone",
+    "address",
+    "offline_access"
+  ],
+  "protocolMappers": [],
+  "groups": [],
+  "users": []
+}
