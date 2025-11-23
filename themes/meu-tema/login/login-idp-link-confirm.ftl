@@ -29,15 +29,19 @@
       <form id="kc-register-form" class="kc-form" action="${url.loginAction}" method="post">
         
         <div class="kc-field">
-          <label>${msg("identity-provider-login-label")}</label>
-          <input type="text" value="${idpDisplayName}" disabled="disabled" />
+          <label for="username">${msg("username")}</label>
+          <input type="text" id="username" name="username" value="${idpAlias}" disabled="disabled" />
         </div>
 
-        <input type="hidden" name="updateProfile" value="on"/>
+        <div class="kc-field">
+          <label for="email">${msg("email")}</label>
+          <input type="text" id="email" name="email" value="${idpDisplayName}" disabled="disabled" />
+        </div>
+
+        <input type="hidden" id="updateProfile" name="updateProfile" value="off"/>
 
         <div class="kc-buttons">
-          <input class="kc-btn kc-btn--primary" type="submit" name="submitAction" value="updateProfile" />
-          <input class="kc-btn kc-btn--secondary" type="submit" name="submitAction" value="linkAccount" />
+          <input class="kc-btn kc-btn--primary" type="submit" value="${msg("confirmLinkIdpContinue")}" />
         </div>
       </form>
 
